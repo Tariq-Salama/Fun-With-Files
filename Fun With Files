@@ -1,0 +1,55 @@
+/**
+ * Program to copy one file into another, using command line arguments
+ *
+ * @author Tariq Salama
+ * @author Abib Abib
+ * @version 20231107
+ *
+ */
+import java.io.FileNotFoundException;
+import java.io.File;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class FunWithFiles {
+   
+   /**
+    * Displays the file given by fname to the screen
+    * 
+    * @param fname file to be displayed
+    */
+   public static void displayFile(String fname) {
+     
+     try {
+      File f=new File(fname); 
+           
+      Scanner sc=new Scanner(f);
+            
+      while(sc.hasNext()){
+                
+      System.out.println(sc.nextLine());
+      }
+
+      } 
+      catch (FileNotFoundException e) {
+            
+      System.out.println("ERROR - File "+fname+" not found!");
+      
+        }
+    }
+   
+   public static void main(String[] args) {
+      
+      // Prompt the user for a filename
+  
+      Scanner sc = new Scanner(System.in);
+      
+        System.out.print("Enter a filename: ");
+        
+        String fname = sc.nextLine();
+        
+        displayFile(fname);
+
+    }
+
+}
